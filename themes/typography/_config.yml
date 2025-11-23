@@ -1,0 +1,46 @@
+
+title_primary: "稻蘖" # the bigger text
+title_secondary: "Pokerface" # the smaller text
+keywords: 热爱所热爱，希望所希望
+
+twitter: #username
+rss: atom.xml
+weibo: #username/id
+instagram: #username
+github: Poker-xh
+
+# Choose the comment service according to your need.
+# Please do not use the two services at the same time.
+livere: Pokerface
+disqus: #aipokerface
+dove: false
+
+
+# Set true to show the page indicator.
+showPageCount: true
+
+# Set true to show category or tags behind post titles
+showCategories: true
+showTags: true
+
+# Color scheme
+themeStyle: light # light/dark
+
+# Waline
+# For more information: https://waline.js.org, https://github.com/walinejs/waline
+waline:
+  enable: true #是否开启
+  serverURL: comment-akb5wdulk-poker-xh.vercel.app # Waline #服务端地址，我们这里就是上面部署的 Vercel 地址
+  placeholder: 请文明评论呀 # #评论框的默认文字
+  avatar: mm # 头像风格
+  meta: [nick, mail, link] # 自定义评论框上面的三个输入框的内容
+  pageSize: 10 # 评论数量多少时显示分页
+  lang: zh-cn # 语言, 可选值: en, zh-cn
+  # Warning: 不要同时启用 `waline.visitor` 以及 `leancloud_visitors`.
+  visitor: false # 文章阅读统计
+  comment_count: true # 如果为 false , 评论数量只会在当前评论页面显示, 主页则不显示
+  requiredFields: [] # 设置用户评论时必填的信息，[nick,mail]: [nick] | [nick, mail]
+  libUrl: # Set custom library cdn url
+
+
+

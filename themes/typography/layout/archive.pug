@@ -1,0 +1,27 @@
+extends partial/layout
+
+block site_title
+    !=  __("Archive") + " · " + config.title
+
+block description
+    - var desc = __("Archive") +' - ' + config.title;
+    meta(name="description", content=desc)
+
+block content
+    .autopagerize_page_element: .content
+        .archive.animated.fadeInDown
+            p.post-title
+                != __("Tags")
+            include mixins
+            +tagList()
+            
+            div(style="margin-bottom: 60px")
+
+            p.post-title
+                != __("Archive") + ' ' + __('ArchiveCount', site.posts.length)
+            ul.list-with-title
+                include mixins
+                +postList()
+        if config.archive_generator.per_page
+            include mixins
+            +make_pager(__('prev'), __('next'))
