@@ -3,7 +3,7 @@ name: Deploy Blog
 on:
   push:
     branches:
-      - source  # 监听 source 分支的变动
+      - source
 
 jobs:
   deploy:
@@ -23,12 +23,10 @@ jobs:
       - name: Generate Hexo Site
         run: npx hexo generate
 
-      - name: Deploy to Cloudflare Workers/Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # 如果您是部署 Pages，通常是部署 public 目录
-          # 如果您之前的命令是 npx wrangler deploy，请确认您的 wrangler.toml 配置正确
-          command: pages deploy public --project-name=pokerface 
-          # 注意：请将 'blog' 替换为您 Cloudflare 里的真实项目名
+      # 修改部分开始：直接使用 npx wrangler 命令
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler pages deploy public --project-name=pokerface
+      # 修改部分结束
